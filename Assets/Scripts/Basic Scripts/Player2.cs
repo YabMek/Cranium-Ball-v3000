@@ -17,9 +17,6 @@ public class Player2 : MonoBehaviour
     private bool shouldJump;
     private bool canJump;
 
-    private bool pressedJ = false;
-
-    public float MagicTimer = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -31,8 +28,7 @@ public class Player2 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(MagicTimer);
-        MagicTimer = MagicTimer + Time.deltaTime;
+       
         HandleMovement();
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.1f);
 
@@ -45,18 +41,7 @@ public class Player2 : MonoBehaviour
             rigidBody.AddForce(new Vector2(0, 0), ForceMode2D.Impulse);
         }
 
-        if (Input.GetKeyDown(KeyCode.J))
-        {
-            pressedJ = true;
-            print("JJJJJJJ");
-            animator.SetBool("Wack", true);
-            MagicTimer = 0.0f;
-
-        }
-        if (MagicTimer > .2f)
-        {
-            animator.SetBool("Wack", false);
-        }
+       
 
     }
 

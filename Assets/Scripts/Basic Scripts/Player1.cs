@@ -17,6 +17,9 @@ public class Player1 : MonoBehaviour
     private bool shouldJump;
     private bool canJump;
 
+    private bool pressedJ = false;
+    public float MagicTimer = 0.0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,35 +31,57 @@ public class Player1 : MonoBehaviour
     void Update()
     {
 
-    
+        print(MagicTimer);
+        MagicTimer = MagicTimer + Time.deltaTime;
         HandleMovement();
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.1f);
 
-        if (Input.GetKeyDown(KeyCode.UpArrow)) {
-                 rigidBody.AddForce(new Vector2(0, 30), ForceMode2D.Impulse);
-       } else {
-          rigidBody.AddForce(new Vector2(0, 0), ForceMode2D.Impulse); 
-       }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            rigidBody.AddForce(new Vector2(0, 30), ForceMode2D.Impulse);
+        }
+        else
+        {
+            rigidBody.AddForce(new Vector2(0, 0), ForceMode2D.Impulse);
+        }
 
-      
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            pressedJ = true;
+            print("JJJJJJJ");
+            animator.SetBool("Kick", true);
+            MagicTimer = 0.0f;
+
+        }
+        if (MagicTimer > .2f)
+        {
+            animator.SetBool("Kick", false);
+        }
+
     }
 
     private void HandleMovement()
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            if(Input.GetKey(KeyCode.RightShift)) {
-               rigidBody.velocity = new Vector2(10, rigidBody.velocity.y);
-            } else {
-               rigidBody.velocity = new Vector2(5, rigidBody.velocity.y); 
+            if (Input.GetKey(KeyCode.RightShift))
+            {
+                rigidBody.velocity = new Vector2(10, rigidBody.velocity.y);
+            }
+            else
+            {
+                rigidBody.velocity = new Vector2(5, rigidBody.velocity.y);
             }
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if(Input.GetKey(KeyCode.Space)) {
-               rigidBody.velocity = new Vector2(-10, rigidBody.velocity.y);
-            } else {
-               rigidBody.velocity = new Vector2(-5, rigidBody.velocity.y); 
+            if (Input.GetKey(KeyCode.Space))
+            {
+                rigidBody.velocity = new Vector2(-10, rigidBody.velocity.y);
+            }
+            else
+            {
+                rigidBody.velocity = new Vector2(-5, rigidBody.velocity.y);
             }
         }
         else
