@@ -30,7 +30,7 @@ public class Ball_Collision : MonoBehaviour
 
         if (collision.gameObject.tag == "Ball")
         {
-            print("COLLLIDEED");
+           
             Vector2 pos = (transform.position - collision.gameObject.transform.position).normalized;
             rbBall.AddForce(-pos * force, ForceMode2D.Impulse);
 
