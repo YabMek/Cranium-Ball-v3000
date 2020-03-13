@@ -15,7 +15,6 @@ public class Ball_Collision : MonoBehaviour
 
         ball = GameObject.FindGameObjectWithTag("Ball");
         rbBall = ball.GetComponent<Rigidbody2D>();
-        print("STARTED");
         this.enabled = false;
     }
 
@@ -30,7 +29,7 @@ public class Ball_Collision : MonoBehaviour
 
         if (collision.gameObject.tag == "Ball")
         {
-           
+           print("COLLIDE");
             Vector2 pos = (transform.position - collision.gameObject.transform.position).normalized;
             rbBall.AddForce(-pos * force, ForceMode2D.Impulse);
 
