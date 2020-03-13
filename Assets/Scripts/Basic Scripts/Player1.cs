@@ -20,6 +20,9 @@ public class Player1 : MonoBehaviour
     private bool pressedJ = false;
     public float MagicTimer = 0.0f;
 
+   
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,7 +34,7 @@ public class Player1 : MonoBehaviour
     void Update()
     {
 
-    
+      
         MagicTimer = MagicTimer + Time.deltaTime;
         HandleMovement();
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.1f);
@@ -44,11 +47,11 @@ public class Player1 : MonoBehaviour
                 isGrounded = false;
             }
 
-            
-        }
-     
 
-        if (Input.GetKeyDown(KeyCode.J))
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.Period))
         {
             pressedJ = true;
             animator.SetBool("Kick", true);
@@ -66,9 +69,9 @@ public class Player1 : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.RightArrow))
         {
-            if (Input.GetKey(KeyCode.RightShift))
+            if (Input.GetKeyDown(KeyCode.Comma))
             {
-                rigidBody.velocity = new Vector2(10, rigidBody.velocity.y);
+                rigidBody.velocity = new Vector2(20, rigidBody.velocity.y);
             }
             else
             {
@@ -77,9 +80,13 @@ public class Player1 : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
         {
-            if (Input.GetKey(KeyCode.Space))
+
+           
+
+            if (Input.GetKeyDown(KeyCode.Comma))
             {
-                rigidBody.velocity = new Vector2(-10, rigidBody.velocity.y);
+                rigidBody.velocity = new Vector2(-20, rigidBody.velocity.y);
+
             }
             else
             {

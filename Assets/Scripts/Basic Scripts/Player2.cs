@@ -34,7 +34,7 @@ public class Player2 : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.W))
         {
-            print(isGrounded);
+    
             if (isGrounded == true)
             {
                 rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -51,9 +51,9 @@ public class Player2 : MonoBehaviour
     {
         if (Input.GetKey(KeyCode.D))
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                rigidBody.velocity = new Vector2(10, rigidBody.velocity.y);
+                rigidBody.velocity = new Vector2(20, rigidBody.velocity.y);
             }
             else
             {
@@ -62,9 +62,9 @@ public class Player2 : MonoBehaviour
         }
         else if (Input.GetKey(KeyCode.A))
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                rigidBody.velocity = new Vector2(-10, rigidBody.velocity.y);
+                rigidBody.velocity = new Vector2(-20, rigidBody.velocity.y);
             }
             else
             {
