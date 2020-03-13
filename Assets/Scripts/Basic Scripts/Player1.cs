@@ -8,7 +8,7 @@ public class Player1 : MonoBehaviour
     private Rigidbody2D rigidBody;
     public static GameObject character;
 
-    public bool isGrounded;
+    public bool isGrounded = false;
     public Vector2 jump;
     public float jumpForce = 2.0f;
 
@@ -31,24 +31,26 @@ public class Player1 : MonoBehaviour
     void Update()
     {
 
-        print(MagicTimer);
+    
         MagicTimer = MagicTimer + Time.deltaTime;
         HandleMovement();
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up, 0.1f);
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
-            rigidBody.AddForce(new Vector2(0, 30), ForceMode2D.Impulse);
+            if (isGrounded == true)
+            {
+                rigidBody.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
+                isGrounded = false;
+            }
+
+            
         }
-        else
-        {
-            rigidBody.AddForce(new Vector2(0, 0), ForceMode2D.Impulse);
-        }
+     
 
         if (Input.GetKeyDown(KeyCode.J))
         {
             pressedJ = true;
-            print("JJJJJJJ");
             animator.SetBool("Kick", true);
             MagicTimer = 0.0f;
 
@@ -87,6 +89,14 @@ public class Player1 : MonoBehaviour
         else
         {
             rigidBody.velocity = new Vector2(0, rigidBody.velocity.y);
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Ground")
+        {
+            isGrounded = true;
         }
     }
 
