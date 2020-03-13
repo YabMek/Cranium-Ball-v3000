@@ -364,7 +364,6 @@ GameObject:
   - component: {fileID: 1153500146}
   - component: {fileID: 1153500145}
   - component: {fileID: 1153500144}
-  - component: {fileID: 1153500143}
   m_Layer: 0
   m_Name: TestPicture (1)
   m_TagString: Untagged
@@ -372,24 +371,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1153500143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1153500142}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef67ee0fc05e3dc4aac05d2dead2f1e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 0}
-  isGrounded: 0
-  jump: {x: 0, y: 0}
-  jumpForce: 2
-  distToGround: 0
-  MagicTimer: 0
 --- !u!61 &1153500144
 BoxCollider2D:
   m_ObjectHideFlags: 0
