@@ -336,7 +336,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &669791066
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1314,10 +1314,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9a67356eae07c54f8caf078f676ca9e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
   isGrounded: 0
   jump: {x: 0, y: 0}
   jumpForce: 2
   distToGround: 0
+  MagicTimer: 0
 --- !u!114 &1592293500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1354,7 +1356,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &1592293502
 BoxCollider2D:
   m_ObjectHideFlags: 0
